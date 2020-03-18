@@ -19,6 +19,7 @@ body {
   width: 50%;
   position: relative;
   height: 50px;
+  overflow: hidden;
 }
 
 .form input {
@@ -27,6 +28,7 @@ body {
   color: #595f6e;
   padding-top: 20px;
   border: none;
+  outline: none;
 }
 
 .form label {
@@ -47,4 +49,25 @@ body {
   height: 100%;
   width: 100%;
   border-bottom: 3px solid #5fa8d3;
+  transform: translateX(-100%);
+  transition: transition 0.3s ease
+}
+
+.content-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.3s ease;
+}
+
+.form input:focus + .label-name, 
+.form input:valid + .label-name .content-name {
+ transform: translateY(-150%);
+ font-size: 14px;
+ color: #5fa8d3; 
+}
+
+.form input:focus + .label-name::after,
+.form input:valid + .label-name::after {
+  transform: translateX(0%)
 }
